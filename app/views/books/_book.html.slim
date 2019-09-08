@@ -7,3 +7,6 @@ tr
     = book.genre_i18n
   td 
     = book.status_i18n
+  td 
+    = link_to '編集', edit_book_path(book), class: 'btn btn-info mr-1'
+    = link_to '削除', book, method: :delete, data: { confirm: "「#{book.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
