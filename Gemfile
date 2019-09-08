@@ -56,4 +56,5 @@ gem 'html2slim'
 gem 'bootstrap'
 gem 'rename'
 gem 'enum_help'
+gem 'kaminari'
 
