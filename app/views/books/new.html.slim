@@ -12,10 +12,10 @@ h1 本を登録する
     = f.text_field :author, class: 'form-control', id: 'author'
   .form-group
     = f.label :genre
-    = f.select :genre, Book.genres.keys, {}, class: 'form-control', placeholder: 0
+    = f.select :genre, Book.genres_i18n.invert, {}, class: 'form-control', placeholder: 0
   .form-group
     = f.label :status
-    = f.select :status, Book.statuses.keys, {},class: 'form-control', placeholder: 1
+    = f.select :status, Book.statuses_i18n.invert, {},class: 'form-control', placeholder: 1
 
   = f.submit '保存する', class: "btn btn-info"
 

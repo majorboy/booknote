@@ -1,5 +1,14 @@
 ---
 ja:
+  enums: 
+    book:
+      genre:
+        money: お金
+        study_method: 勉強法
+        paperback: 新書
+      status:   
+        unfinished: 未読
+        finished: 読了
   activerecord:
     errors:
       messages:
