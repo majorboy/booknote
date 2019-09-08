@@ -15,7 +15,7 @@ ja:
     title: 書名
     author: 作者
     genre: ジャンル
-    finished: 読了
+    status: 状態
   date:
     abbr_day_names:
     - 日
