@@ -1,3 +1,18 @@
 h1 Book List
-= link_to "本を登録する", '#', class: "btn btn-info"
+
+.nav.justify-content-end
+= link_to "本を登録する", new_book_path, class: "btn btn-info"
+
+.table-responsive
+  table.table.table-striped.b-t.b-light
+    thead
+      tr
+        th 書名
+        th 作者
+        th ジャンル
+        th 状態
+    tbody
+      = render @books
+        
+    
 
