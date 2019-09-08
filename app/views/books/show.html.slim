@@ -1,2 +1,15 @@
-h1 Books#show
-p Find me in app/views/books/show.html.slim
+.show-book-btn
+  .nav.justify-content-end 
+    = link_to 'Book List', books_path, class: 'btn btn-info'
+  
+.table-responsive
+table.table.table-striped.b-t.b-light
+  thead
+    tr
+      th 書名
+      th 作者
+      th ジャンル
+      th 状態
+      th
+  tbody
+    = render @book
