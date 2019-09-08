@@ -1,0 +1,14 @@
+= form_for book do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', id: 'book_name', autocomplete: 'off'
+  .form-group
+    = f.label :author
+    = f.text_field :author, class: 'form-control', id: 'author', autocomplete: 'off'
+  .form-group
+    = f.label :genre
+    = f.select :genre, Book.genres_i18n.invert, {}, class: 'form-control', placeholder: 0
+  .form-group
+    = f.label :status
+    = f.select :status, Book.statuses_i18n.invert, {},class: 'form-control', placeholder: 1
+  = f.submit nil, class: "btn btn-info"

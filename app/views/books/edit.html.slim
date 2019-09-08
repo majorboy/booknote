@@ -1,2 +1,6 @@
-h1 Books#edit
-p Find me in app/views/books/edit.html.slim
+h1 本の編集
+
+.nav.justify-content-end 
+  = link_to 'Book List', books_path, class: 'btn btn-info'
+
+= render partial: 'form', locals: { book: @book }
