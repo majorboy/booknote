@@ -2,14 +2,14 @@ doctype html
 html
   head
     title
-      | Mybooks
+      | Booknote
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     header.navbar.navbar-fixed-top.bg-dark
       .container
-        = link_to "Mybooks", '#', id: "logo" 
+        = link_to "Booknote", '#', id: "logo" 
         nav.nav
           .nav-link = link_to "Home",'#'
           .nav-link = link_to "Log in", "#"

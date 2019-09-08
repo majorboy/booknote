@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Mybooks
+module Booknote
   class Application < Rails::Application
     config.generators do |g|
       g.stylesheets false
