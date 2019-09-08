@@ -20,6 +20,18 @@ class BooksController < ApplicationController
     redirect_to books_url, notice: "「#{book.title}」を登録しました。"
   end
 
+  def update
+    book = Book.find(params[:id])
+    book.update!(book_params)
+    redirect_to books_url, notice: "「#{book.title}」を更新しました。"
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to books_url, notice: "「#{book.title}」を削除しました。"
+  end
+
   private
 
   def book_params
