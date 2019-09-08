@@ -1,2 +1,17 @@
-h1 Books#new
-p Find me in app/views/books/new.html.slim
+h1 本を登録する
+
+.nav.justify-content-end 
+  = link_to 'Book List', books_path, class: 'btn btn-info'
+
+= form_for @book do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', id: 'book_name'
+  .form-group
+    = f.label :author
+    = f.text_field :author, class: 'form-control', id: 'author'
+  .form-group
+    = f.label :genre
+    = f.select :genre, Book.genres.keys, {}, class: 'form-control', placeholder: 0
+
+
