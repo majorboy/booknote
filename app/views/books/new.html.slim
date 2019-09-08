@@ -13,5 +13,10 @@ h1 本を登録する
   .form-group
     = f.label :genre
     = f.select :genre, Book.genres.keys, {}, class: 'form-control', placeholder: 0
+  .form-group
+    = f.label :status
+    = f.select :status, Book.statuses.keys, {},class: 'form-control', placeholder: 1
+
+  = f.submit '保存する', class: "btn btn-info"
 
 
