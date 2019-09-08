@@ -1,1 +1,21 @@
 @import "bootstrap";
+
+/* top */
+.center {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    margin-top: 20px;
+  }
+}
+
+.row .col {
+  h1 { 
+    text-align: center;
+  }
+}
+

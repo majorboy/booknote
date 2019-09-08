@@ -7,12 +7,11 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    header.navbar.navbar-fixed-top.navbar-inverse
+    header.navbar.navbar-fixed-top.bg-dark
       .container
         = link_to "Mybooks", '#', id: "logo" 
-        nav 
-        ul.nav.navbar-nav.navbar-right
-          li = link_to "Home",'#'
-          li = link_to "Log in", "#"
-      .container
-        = yield
+        nav.nav
+          .nav-link = link_to "Home",'#'
+          .nav-link = link_to "Log in", "#"
+    .container
+      = yield
