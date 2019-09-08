@@ -13,4 +13,6 @@ html
       .nav-link 
         = link_to "Log in", "#"
     .container
+      - if flash.notice.present?
+        .alert.alert-success = flash.notice
       = yield
