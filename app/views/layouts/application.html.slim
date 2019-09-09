@@ -8,10 +8,14 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     nav.navbar.bg-dark.justify-content-end
-      .nav-link 
-        = link_to "Home",books_path
-      .nav-link 
-        = link_to "Log in", login_path
+      - if current_user
+        .nav-link 
+          = link_to "Home", books_path
+        .nav-link
+          = link_to "Log out", logout_path, method: :delete
+      - else 
+        .nav-link 
+          = link_to "Log in",login_path
     .container
       - if flash.notice.present?
         .alert.alert-success = flash.notice
