@@ -16,19 +16,19 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(book_params)
-    book.save!
-    redirect_to books_url, notice: "「#{book.title}」を登録しました。"
+    @book = Book.new(book_params)
+    @book.save!
+    redirect_to books_url, notice: "「#{@book.title}」を登録しました。"
   end
 
   def update
     @book.update!(book_params)
-    redirect_to books_url, notice: "「#{book.title}」を更新しました。"
+    redirect_to books_url, notice: "「#{@book.title}」を更新しました。"
   end
 
   def destroy
     @book.destroy
-    redirect_to books_url, notice: "「#{book.title}」を削除しました。"
+    redirect_to books_url, notice: "「#{@book.title}」を削除しました。"
   end
 
   private
