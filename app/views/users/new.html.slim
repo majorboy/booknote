@@ -1,4 +1,7 @@
 h1 ユーザー登録
 
+.nav.justify-content-end
+  = link_to 'Top', root_path, class: 'btn btn-info'
+  
 = render partial: 'form', locals: { user: @user }
    

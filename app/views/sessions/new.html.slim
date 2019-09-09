@@ -1,5 +1,8 @@
 h1 ログイン
 
+.nav.justify-content-end
+  = link_to 'Top', root_path, class: 'btn btn-info'
+
 = form_for(:session, url: login_path) do |f|
 
   .form-group
