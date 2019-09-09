@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :login_required 
 
   def index
-    @books = Book.order('created_at DESC').page(params[:page]).per(5)
+    @books = current_user.books.order('created_at DESC').page(params[:page]).per(5)
   end
 
   def show
@@ -39,7 +39,7 @@ class BooksController < ApplicationController
   end
 
   def set_book
-    @book = Book.find(params[:id])
+    @book = current_user.books.find(params[:id])
   end
 
   def login_required
