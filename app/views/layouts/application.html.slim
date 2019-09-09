@@ -11,7 +11,7 @@ html
       .nav-link 
         = link_to "Home",books_path
       .nav-link 
-        = link_to "Log in", "#"
+        = link_to "Log in", login_path
     .container
       - if flash.notice.present?
         .alert.alert-success = flash.notice
