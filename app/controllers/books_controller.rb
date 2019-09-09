@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show,:edit,:update,:destroy]
-  before_action :login_required
+  before_action :login_required 
 
   def index
     @books = Book.order('created_at DESC').page(params[:page]).per(5)
