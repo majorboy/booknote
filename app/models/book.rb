@@ -3,4 +3,5 @@ class Book < ApplicationRecord
   enum status: [:unfinished,:finished]
   belongs_to :user
   has_one :note, dependent: :destroy
+  has_many :thoughts, dependent: :destroy
 end
