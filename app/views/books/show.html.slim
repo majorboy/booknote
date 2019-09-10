@@ -1,6 +1,13 @@
 .show-book-btn
   .nav.justify-content-end 
-    = link_to 'Book List', books_path, class: 'btn btn-info'
+    .nav-item
+      = link_to 'Book List', books_path, class: 'btn btn-info'
+    .nav-item
+      = link_to 'Summary作成', new_book_note_path(@book), class: 'btn btn-info'
+    .nav-item 
+      = link_to 'Summary編集', edit_book_note_path(@book), class: 'btn btn-info'
+    .nav-item
+      = link_to 'Thoughts', books_path, class: 'btn btn-info'
   
 .table-responsive
 table.table.table-striped.b-t.b-light
@@ -13,3 +20,16 @@ table.table.table-striped.b-t.b-light
       th
   tbody
     = render @book
+
+.note-title  
+  h3 Summary
+
+.note-content
+  = @book.note.content
+
+br
+br
+.thoughts-title
+  h3 Thoughts
+
+.thoughts-content
