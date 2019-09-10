@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root "top#index"
   resources :books do
     resources :notes
+    resources :thoughts
   end
 
   resources :users, only: [:new, :edit, :create, :update]
