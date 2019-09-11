@@ -2,6 +2,6 @@ class Book < ApplicationRecord
   enum genre: [:money, :study_method, :programming]
   enum status: [:unfinished,:finished]
   belongs_to :user
-  has_one :note, dependent: :destroy
+  has_many :notes, dependent: :destroy
   has_many :thoughts, dependent: :destroy
 end
