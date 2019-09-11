@@ -15,10 +15,10 @@ h1 Book List
   table.table.table-striped.b-t.b-light
     thead
       tr
-        th 書名
-        th 作者
-        th ジャンル
-        th 状態
+        th = sort_link(@q, :title, hide_indicator: true)
+        th = sort_link(@q, :author, hide_indicator: true)
+        th = sort_link(@q, :genre, hide_indicator: true)
+        th = sort_link(@q, :status, hide_indicator: true)
         th
     tbody
       = render @books
