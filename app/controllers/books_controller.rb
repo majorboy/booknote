@@ -3,7 +3,8 @@ class BooksController < ApplicationController
   before_action :login_required 
 
   def index
-    @books = current_user.books.order('created_at DESC').page(params[:page]).per(5)
+    @q = current_user.books.ransack(params[:q])
+    @books = @q.result(distinct: true).recent.page(params[:page])
   end
 
   def show

@@ -1,5 +1,13 @@
 h1 Book List
 
+= search_form_for @q, class: 'mb-5' do |f|
+  .form-group.row
+    = f.label :title_cont, '書名', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :title_cont, class: 'form-control', autocomplete: 'off'
+  .form-group
+    = f.submit class: 'btn btn-outline-info'
+
 .nav.justify-content-end
 = link_to "本を登録する", new_book_path, class: "btn btn-info"
 
