@@ -4,4 +4,6 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :notes, dependent: :destroy
   has_many :thoughts, dependent: :destroy
+
+  scope :recent, -> { order(created_at: :desc)}
 end
