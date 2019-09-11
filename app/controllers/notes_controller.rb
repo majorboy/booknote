@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_book
-  before_action :set_note, except: [:new]
+  before_action :set_note, except: [:new,:create]
 
   def new
     @note = Note.new
@@ -22,6 +22,11 @@ class NotesController < ApplicationController
     end
   end
 
+  def destroy
+    @note.destroy
+    redirect_to book_path(@book), notice: 'Summaryを削除しました'
+  end
+
   private
   def create_params
     params.require(:note).permit(:content).merge(book_id: params[:book_id])
@@ -34,4 +39,5 @@ class NotesController < ApplicationController
   def set_note
     @note = Note.find(params[:id])
   end
+
 end
