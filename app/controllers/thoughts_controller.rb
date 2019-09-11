@@ -22,6 +22,11 @@ class ThoughtsController < ApplicationController
     end
   end
 
+  def destroy
+    @thought.destroy
+    redirect_to book_path(@book), notice: 'Thoughtを削除しました'
+  end
+
   private
   def create_params
     params.require(:thought).permit(:thought).merge(book_id: params[:book_id])
