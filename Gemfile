@@ -57,4 +57,4 @@ gem 'bootstrap'
 gem 'rename'
 gem 'enum_help'
 gem 'kaminari'
-
+gem 'ransack'
