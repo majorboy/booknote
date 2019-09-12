@@ -8,7 +8,7 @@ h1 Book List
   .form-group.row
     = f.label :genre_eq, 'ジャンル', class: 'col-sm-2 col-form-label'
     .col-sm-10
-      = f.select :genre_eq, Book.genres.map{|k,v|[Book.genres_i18n[k], v] }, class: 'form-control'
+      = f.select :genre_eq, Book.genres.map{|k,v|[Book.genres_i18n[k], v] }, { include_blank: true },class: 'form-control'
   .form-group
     = f.submit class: 'btn btn-outline-info'
 
