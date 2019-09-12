@@ -6,4 +6,17 @@ class Book < ApplicationRecord
   has_many :thoughts, dependent: :destroy
 
   scope :recent, -> { order(created_at: :desc)}
+
+  def self.csv_attributes
+    ["title", "author", "genre", "status"]
+  end
+
+  def self.generate_csv
+    CSV.generate(headers: true) do |csv|
+      csv << csv_attributes
+      all.each do |book|
+        csv << csv_attributes.map{ |attr| book.send(attr)}
+      end
+    end
+  end
 end
