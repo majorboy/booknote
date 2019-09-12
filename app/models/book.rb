@@ -8,16 +8,23 @@ class Book < ApplicationRecord
   scope :recent, -> { order(created_at: :desc)}
 
   def self.csv_attributes
-    ["title", "author", "genre", "status"]
+    
   end
 
   def self.generate_csv
-    bom = %w(EF BB BF).map { |e| e.hex.chr }.join
-    CSV.generate(bom) do |csv|
-      csv << csv_attributes
+    column_name = ["書名", "作者", "ジャンル", "状態"]
+    CSV.generate(encoding: Encoding::SJIS, row_sep: "\r\n", force_quotes: true) do |csv|
+      csv << column_name
       all.each do |book|
-        csv << csv_attributes.map{ |attr| book.send(attr)}
+        column_values = [
+          book.title,
+          book.author,
+          book.genre_i18n,
+          book.status_i18n
+        ]
+        csv << column_values
       end
+      
     end
   end
 end
