@@ -12,8 +12,11 @@ h1 Book List
   .form-group
     = f.submit class: 'btn btn-outline-info'
 
-.nav.justify-content-end
-= link_to "本を登録する", new_book_path, class: "btn btn-info"
+.nav
+  .nav-item
+    = link_to "本を登録する", new_book_path, class: "btn btn-info"
+  .nav-item 
+    = link_to "csvエクスポート", books_path(format: :csv), class: "btn btn-info"
 
 .table-responsive
   table.table.table-striped.b-t.b-light
