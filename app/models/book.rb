@@ -12,7 +12,8 @@ class Book < ApplicationRecord
   end
 
   def self.generate_csv
-    CSV.generate(headers: true) do |csv|
+    bom = %w(EF BB BF).map { |e| e.hex.chr }.join
+    CSV.generate(bom) do |csv|
       csv << csv_attributes
       all.each do |book|
         csv << csv_attributes.map{ |attr| book.send(attr)}
