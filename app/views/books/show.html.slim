@@ -1,15 +1,18 @@
+
 .show-book-btn
-  .nav.justify-content-end 
-    .nav-item
-      = link_to 'Book List', books_path, class: 'btn btn-info'
-    - unless @book.notes.present?
+  #nav
+    .nav.justify-content-end 
       .nav-item
-        = link_to 'Summary作成', new_book_note_path(@book), class: 'btn btn-info'
-    .nav-item
-      = link_to 'Thought作成', new_book_thought_path(@book), class: 'btn btn-info'
-    .nav-item
-      = link_to 'Thought一覧',{ anchor: "thought" },class: 'btn btn-info'
+        = link_to 'Book List', books_path, class: 'btn btn-info'
+      - unless @book.notes.present?
+        .nav-item
+          = link_to 'Summary作成', new_book_note_path(@book), class: 'btn btn-info'
+      .nav-item
+        = link_to 'Thought作成', new_book_thought_path(@book), class: 'btn btn-info'
+      .nav-item
+        = link_to 'Thought一覧',{ anchor: "thought" },class: 'btn btn-info'
 .table-responsive
+
 table.table.table-striped.b-t.b-light
   thead
     tr
@@ -37,7 +40,9 @@ table.table.table-striped.b-t.b-light
 
 .thought-title
   #thought 
-    h3 Thoughts
+    h3 Thoughts 
+.top-button
+  = link_to 'TOP',{ anchor: "nav" },class: 'btn btn-info'
 - if @book.thoughts.present?
   - @book.thoughts.reverse_each do |thought|
     .thought-content.card
