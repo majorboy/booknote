@@ -16,11 +16,9 @@
   }
 }
 
-.row .col {
+.row .top-content {
   text-align: center;
-  h5 { 
-    font-weight: bold;    
-  }
+  
 }
 
 /* 一覧表示画面 */
@@ -76,8 +74,8 @@
   margin-top: 30px;
 }
 
-.thought-content.card {
-  margin-bottom: 10px;
+.thought-content{
+  margin-top: 10px ;
 }
 
 .footer-item {

@@ -43,14 +43,16 @@ table.table.table-striped.b-t.b-light
 .top-button
   = link_to 'TOP',{ anchor: "nav" },class: 'btn btn-info'
 - if @book.thoughts.present?
+.row
   - @book.thoughts.reverse_each do |thought|
-    .thought-content.card
-      .card-body
-        = simple_format(thought.thought)
-        = thought.updated_at.strftime("%Y-%m-%d %H:%M")
-      .card-footer
-        .footer-item
-          span.mgl10
-            = link_to '編集', edit_book_thought_path(@book,thought)
-          span.mgl10 
-            = link_to '削除', book_thought_path(@book,thought), method: :delete, data: { confirm: "Thoughtを削除します。よろしいですか？"}
+    .col-4.card-deck
+      .thought-content.card
+        .card-body
+          = simple_format(thought.thought)
+          = thought.updated_at.strftime("%Y-%m-%d %H:%M")
+        .card-footer
+          .footer-item
+            span.mgl10
+              = link_to '編集', edit_book_thought_path(@book,thought)
+            span.mgl10 
+              = link_to '削除', book_thought_path(@book,thought), method: :delete, data: { confirm: "Thoughtを削除します。よろしいですか？"}
