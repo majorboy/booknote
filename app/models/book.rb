@@ -6,7 +6,7 @@ class Book < ApplicationRecord
   has_many :thoughts, dependent: :destroy
 
   scope :recent, -> { order(created_at: :desc)}
-
+  
   def self.csv_attributes
     
   end

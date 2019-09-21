@@ -18,7 +18,9 @@
 
 .row .top-content {
   text-align: center;
-  
+  &__text {
+    margin-top: 25px;
+  }
 }
 
 /* 一覧表示画面 */
