@@ -1,16 +1,25 @@
 .center.jumbotron
-  h1 BookNote
-  em.block-quote Standing on the shoulders of giants.
-  .blockquote-footer.text-right Isaac Newton
+  h1 Book&nbsp;Note
+  em
+    .block-quote Standing on the shoulders of giants.
+    .blockquote-footer.text-right Isaac Newton
 
   = link_to "ユーザー登録", new_user_path, class: "btn btn-md btn-info"
 .container
   .row
     .col
       h5 持っている本の見える化
+      br
+      = icon 'far', 'folder-open fa-5x'
+      p 
     .col
       h5 要点をノートにまとめる
+      br
+      = icon 'far', 'file-alt fa-5x'
     .col
       h5 思考をノートに残す
+      br
+      = icon 'far', 'comment-alt fa-5x'
+        
     
     
