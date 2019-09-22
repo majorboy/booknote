@@ -4,7 +4,7 @@ class BooksController < ApplicationController
 
   def index
     @q = current_user.books.ransack(params[:q])
-    @books = @q.result(distinct: true).recent.page(params[:page])
+    @books = @q.result(distinct: true).recent.page(params[:page]).per(10)
 
     respond_to do |format|
       format.html
@@ -13,10 +13,11 @@ class BooksController < ApplicationController
   end
 
   def show
-    @thoughts = @book.thoughts.page(params[:page]).per(6)
+    @thoughts = @book.thoughts.recent.page(params[:page]).per(6)
   end
 
   def new
+    @book = Book.new
   end
 
   def edit

@@ -44,7 +44,7 @@ table.table.table-striped.b-t.b-light
   = link_to 'TOP',{ anchor: "nav" },class: 'btn btn-info'
 - if @book.thoughts.present?
   .row
-    - @thoughts.reverse_each do |thought|
+    - @thoughts.each do |thought|
       .col-4.card-deck
         .thought-content.card
           .card-body
