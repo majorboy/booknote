@@ -4,13 +4,8 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :notes, dependent: :destroy
   has_many :thoughts, dependent: :destroy
-
   scope :recent, -> { order(created_at: :desc)}
   
-  def self.csv_attributes
-    
-  end
-
   def self.generate_csv
     column_name = ["書名", "作者", "ジャンル", "状態"]
     CSV.generate(encoding: Encoding::SJIS, row_sep: "\r\n", force_quotes: true) do |csv|
