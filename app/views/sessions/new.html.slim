@@ -7,10 +7,12 @@ h1 ログイン
 
   .form-group
     = f.label :email, 'メールアドレス'
+    span.demo デモ用はこちら: sample@example.com
     = f.text_field :email, class: 'form-control', id: 'session_email'
 
   .form-group
     = f.label :password, 'パスワード'
+    span.demo デモ用はこちら:  password
     = f.password_field :password, class: 'form-control',id: 'session_password'
 
   = f.submit 'ログインする', class: 'btn btn-info'
