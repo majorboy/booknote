@@ -8,8 +8,9 @@
         = link_to 'Summary作成', new_book_note_path(@book), class: 'btn btn-info'
     .nav-item
       = link_to 'Thought作成', new_book_thought_path(@book), class: 'btn btn-info'
-    .nav-item
-      = link_to 'Thought一覧',{ anchor: "thought" },class: 'btn btn-info'
+    -if @book.thoughts.present?
+      .nav-item
+        = link_to 'Thought一覧',{ anchor: "thought" },class: 'btn btn-info' 
 
 .table-responsive
 table.table.table-striped.b-t.b-light
