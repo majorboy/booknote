@@ -11,12 +11,12 @@ class ThoughtsController < ApplicationController
 
   def create
     Thought.create(create_params)
-    redirect_to book_path(@book), notice: 'Thoughtを保存しました'
+    redirect_to book_path(@book)
   end
 
   def update
     if @thought.update(create_params)
-      redirect_to book_path(@book), notice: 'Thoughtを更新しました'
+      redirect_to book_path(@book)
     else 
       render :edit
     end
@@ -24,7 +24,7 @@ class ThoughtsController < ApplicationController
 
   def destroy
     @thought.destroy
-    redirect_to book_path(@book), notice: 'Thoughtを削除しました'
+    redirect_to book_path(@book)
   end
 
   private
