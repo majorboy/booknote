@@ -8,7 +8,10 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @books.generate_csv, filename: "books-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"}
+      format.csv do
+        @books = @q.result(distinct: true).recent
+        send_data @books.generate_csv, filename: "books-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"
+      end
     end
   end
 
