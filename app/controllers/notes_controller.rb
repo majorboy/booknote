@@ -11,12 +11,12 @@ class NotesController < ApplicationController
 
   def create
     Note.create(create_params)
-    redirect_to book_path(@book), notice: 'Summaryを保存しました'
+    redirect_to book_path(@book)
   end
 
   def update
     if @note.update(create_params)
-      redirect_to book_path(@book), notice: 'Summaryを更新しました'
+      redirect_to book_path(@book)
     else 
       render :edit
     end
@@ -24,7 +24,7 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy
-    redirect_to book_path(@book), notice: 'Summaryを削除しました'
+    redirect_to book_path(@book)
   end
 
   private

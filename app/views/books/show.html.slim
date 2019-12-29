@@ -8,8 +8,9 @@
         = link_to 'Summary作成', new_book_note_path(@book), class: 'btn btn-info'
     .nav-item
       = link_to 'Thought作成', new_book_thought_path(@book), class: 'btn btn-info'
-    .nav-item
-      = link_to 'Thought一覧',{ anchor: "thought" },class: 'btn btn-info'
+    -if @book.thoughts.present?
+      .nav-item
+        = link_to 'Thought一覧',{ anchor: "thought" },class: 'btn btn-info' 
 
 .table-responsive
 table.table.table-striped.b-t.b-light
@@ -23,38 +24,38 @@ table.table.table-striped.b-t.b-light
   tbody
     = render @book
 
-.note-title  
-  h3 Summary
 - if @book.notes.present?
-  -@book.notes.each do |note|
-    .note-content.card
-      .card-header
-        .header-item
-          span.mgl10
-            = link_to '編集', edit_book_note_path(@book,note)
-          span.mgl10 
-            = link_to '削除', book_note_path(@book,note), method: :delete, data: { confirm: "Summaryを削除します。よろしいですか？"}
-      .card-body
-        = simple_format(note.content)
+  .note-title  
+    h3 Summary
+    -@book.notes.each do |note|
+      .note-content.card
+        .card-header
+          .header-item
+            span.mgl10
+              = link_to '編集', edit_book_note_path(@book,note)
+            span.mgl10 
+              = link_to '削除', book_note_path(@book,note), method: :delete, data: { confirm: "Summaryを削除します。よろしいですか？"}
+        .card-body
+          = simple_format(note.content)
 
-.thought-title
-  #thought 
-    h3 Thoughts 
-.top-button
-  = link_to 'TOP',{ anchor: "nav" },class: 'btn btn-info'
 - if @book.thoughts.present?
-  .row
-    - @thoughts.each do |thought|
-      .col-4.card-deck
-        .thought-content.card
-          .card-body
-            = simple_format(thought.thought)
-            = thought.updated_at.strftime("%Y-%m-%d %H:%M")
-          .card-footer
-            .footer-item
-              span.mgl10
-                = link_to '編集', edit_book_thought_path(@book,thought)
-              span.mgl10 
-                = link_to '削除', book_thought_path(@book,thought), method: :delete, data: { confirm: "Thoughtを削除します。よろしいですか？"}
-  .pagination-sm
-    = paginate(@thoughts, params:{ anchor: "thought" })
+  .thought-title
+    #thought 
+      h3 Thoughts 
+  .top-button
+    = link_to 'TOP',{ anchor: "nav" },class: 'btn btn-info'
+    .row
+      - @thoughts.each do |thought|
+        .col-4.card-deck
+          .thought-content.card
+            .card-body
+              = simple_format(thought.thought)
+              = thought.updated_at.strftime("%Y-%m-%d %H:%M")
+            .card-footer
+              .footer-item
+                span.mgl10
+                  = link_to '編集', edit_book_thought_path(@book,thought)
+                span.mgl10 
+                  = link_to '削除', book_thought_path(@book,thought), method: :delete, data: { confirm: "Thoughtを削除します。よろしいですか？"}
+    .pagination-sm
+      = paginate(@thoughts, params:{ anchor: "thought" })
