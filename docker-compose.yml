@@ -22,7 +22,9 @@ services:
     build: containers/nginx
     ports:
       - "80:80"
-    volumes_from:
+    volumes:
       - web
     depends_on:
       - web
+volumes:
+    web:
