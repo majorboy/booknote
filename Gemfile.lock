@@ -58,6 +58,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
     erubis (2.7.0)
@@ -215,6 +219,7 @@ DEPENDENCIES
   bootstrap
   byebug
   coffee-rails (~> 4.2)
+  dotenv-rails
   enum_help
   font-awesome-sass (~> 5.4.1)
   html2slim
