@@ -51,6 +51,6 @@ test:
 production:
   <<: *default
   host: ENV['DATABASE_HOST']
-  database: ENV['']
-  username: 
-  password: ENV['DATABASE_HOST']
+  database: ENV['DATABASE_PRO_NAME']
+  username: ENV['DATABASE_PRO_USER']
+  password: ENV['DATABASE_PRO_PASSWORD']
