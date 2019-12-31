@@ -7,8 +7,8 @@ RUN apt-get update -qq && \
 
 RUN mkdir /app
 WORKDIR /app
-ADD Gemfile /app/Gemfile
-ADD Gemfile.lock /app/Gemfile.lock
+# ADD Gemfile /app/Gemfile
+# ADD Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 ADD . /app
 RUN mkdir -p tmp/sockets
