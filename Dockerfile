@@ -5,16 +5,14 @@ RUN apt-get update -qq && \
                        libpq-dev \        
                        nodejs      
 
-RUN mkdir /app
-WORKDIR /app
-ADD Gemfile /app/Gemfile
-ADD Gemfile.lock /app/Gemfile.lock
+RUN mkdir /app_name 
+
+ENV APP_ROOT /app_name 
+WORKDIR $APP_ROOT
+
+ADD ./Gemfile $APP_ROOT/Gemfile
+ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
+
 RUN gem install bundler -v 2.0.1
 RUN bundle install
-ADD . /app
-RUN mkdir -p tmp/sockets
-
-VOLUME /app/public
-VOLUME /app/tmp
-
-CMD bundle exec puma
+ADD . $APP_ROOT

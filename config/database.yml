@@ -14,12 +14,12 @@ default: &default
   encoding: utf8
   host: db
   pool: 5
+  username: root
+  password: password
   
 
 development:
   <<: *default
-  username: <%= ENV['DATABASE_DEV_USER'] %>
-  password:  <%= ENV['DATABASE_DEV_PASSWORD'] %>
   database: booknote_development
 
 # Warning: The database defined as "test" will be erased and
