@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :notes, dependent: :destroy
   has_many :thoughts, dependent: :destroy
+  belongs_to :genre
   scope :recent, -> { order(created_at: :desc)}
   
   def self.generate_csv
