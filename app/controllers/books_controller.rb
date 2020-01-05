@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show,:edit,:update,:destroy]
+  before_action :set_genre, only: [:index, :new, :edit]
   before_action :login_required 
 
   def index
@@ -28,13 +29,19 @@ class BooksController < ApplicationController
 
   def create
     @book = current_user.books.new(book_params)
-    @book.save!
-    redirect_to books_url, notice: "「#{@book.title}」を登録しました。"
+    if @book.save 
+      redirect_to books_url, notice: "「#{@book.title}」を登録しました。"
+    else
+      render :new
+    end
   end
 
   def update
-    @book.update!(book_params)
-    redirect_to books_url, notice: "「#{@book.title}」を更新しました。"
+    if @book.update(book_params)
+      redirect_to books_url, notice: "「#{@book.title}」を更新しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -45,7 +52,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title,:author,:genre,:status)
+    params.require(:book).permit(:title,:author,:genre_id, :status)
   end
 
   def set_book
@@ -54,5 +61,9 @@ class BooksController < ApplicationController
 
   def login_required
     redirect_to login_path unless current_user
+  end
+
+  def set_genre
+    @genres = Genre.all
   end
 end
