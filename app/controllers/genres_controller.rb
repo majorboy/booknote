@@ -27,6 +27,11 @@ class GenresController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @genre.destroy
+    redirect_to genres_url, notice: "ジャンル「#{@genre.name}」を削除しました。"
+  end
   
   private
   def genre_params
