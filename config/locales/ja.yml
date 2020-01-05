@@ -2,12 +2,6 @@
 ja:
   enums: 
     book:
-      genre:
-        money: お金
-        study_method: 勉強法
-        programming: プログラミング
-        business: ビジネス
-        liberal_arts: 教養
       status:   
         unfinished: 未読
         finished: 読了
@@ -25,7 +19,7 @@ ja:
     id: ID
     title: 書名
     author: 作者
-    genre: ジャンル
+    genre_id: ジャンル
     status: 状態
     user:
     name: 名前
