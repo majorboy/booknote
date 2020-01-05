@@ -1,9 +1,9 @@
 class Book < ApplicationRecord
-  enum genre: [:money, :study_method, :programming,:business,:liberal_arts]
   enum status: [:unfinished,:finished]
   belongs_to :user
   has_many :notes, dependent: :destroy
   has_many :thoughts, dependent: :destroy
+  belongs_to :genre, optional: true
   scope :recent, -> { order(created_at: :desc)}
   
   def self.generate_csv
@@ -14,7 +14,7 @@ class Book < ApplicationRecord
         column_values = [
           book.title,
           book.author,
-          book.genre_i18n,
+          book.genre.name,
           book.status_i18n
         ]
         csv << column_values

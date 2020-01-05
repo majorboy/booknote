@@ -2,12 +2,6 @@
 ja:
   enums: 
     book:
-      genre:
-        money: お金
-        study_method: 勉強法
-        programming: プログラミング
-        business: ビジネス
-        liberal_arts: 教養
       status:   
         unfinished: 未読
         finished: 読了
@@ -25,7 +19,7 @@ ja:
     id: ID
     title: 書名
     author: 作者
-    genre: ジャンル
+    genre_id: ジャンル
     status: 状態
     user:
     name: 名前
@@ -34,7 +28,8 @@ ja:
     password_confirmation: パスワード（確認）
     created_at: 登録日時
     updated_at: 更新日時
-    
+    genre:
+    name: ジャンル名
   views:
     pagination:
       first: "&laquo; 最初"

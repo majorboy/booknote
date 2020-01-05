@@ -6,15 +6,17 @@ h1 Book List
     .col-sm-10
       = f.search_field :title_cont, class: 'form-control', autocomplete: 'off'
   .form-group.row
-    = f.label :genre_eq, 'ジャンル', class: 'col-sm-2 col-form-label'
+    = f.label :genre_id_eq, 'ジャンル', class: 'col-sm-2 col-form-label'
     .col-sm-10
-      = f.select :genre_eq, Book.genres.map{|k,v|[Book.genres_i18n[k], v] }, { include_blank: true }, class: 'form-control'
+      = f.collection_select :genre_id_eq, @genres, :id, :name, {include_blank: "---"}, class: 'form-control'
   .form-group
     = f.submit class: 'btn btn-outline-info'
 
 .nav
   .nav-item
     = link_to "本を登録する", new_book_path, class: "btn btn-info"
+  .nav-item
+    = link_to "ジャンル一覧", genres_path, class: "btn btn-info"
   .nav-item 
     = link_to "csvエクスポート", books_path(params.merge(format: 'csv').permit!), class: "btn btn-info"
 
@@ -24,7 +26,7 @@ h1 Book List
       tr
         th = sort_link(@q, :title, hide_indicator: true)
         th = sort_link(@q, :author, hide_indicator: true)
-        th = sort_link(@q, :genre, hide_indicator: true)
+        th = sort_link(@q, :genre_id, hide_indicator: true)
         th = sort_link(@q, :status, hide_indicator: true)
         th
     tbody

@@ -10,17 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190910122809) do
+ActiveRecord::Schema.define(version: 20200105023949) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                  null: false
     t.string   "author"
-    t.integer  "genre",                  null: false
     t.integer  "status",     default: 0, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "user_id"
+    t.integer  "genre_id"
+    t.index ["genre_id"], name: "index_books_on_genre_id", using: :btree
     t.index ["user_id"], name: "index_books_on_user_id", using: :btree
+  end
+
+  create_table "genres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,5 +52,6 @@ ActiveRecord::Schema.define(version: 20190910122809) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "books", "genres"
   add_foreign_key "books", "users"
 end

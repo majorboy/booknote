@@ -1,0 +1,6 @@
+h1 ジャンル編集
+
+.nav.justify-content-end 
+  = link_to 'Genre List', genres_path, class: 'btn btn-info'
+
+= render partial: 'form', locals: { genre: @genre }
