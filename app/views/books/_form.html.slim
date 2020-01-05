@@ -6,8 +6,8 @@
     = f.label :author
     = f.text_field :author, class: 'form-control', id: 'author', autocomplete: 'off'
   .form-group
-    = f.label :genre
-    = f.select :genre, Book.genres_i18n.invert, {}, class: 'form-control', placeholder: 0
+    = f.label :genre_id
+    = f.collection_select :genre_id, @genres, :id, :name, {include_blank: "---"}, class: 'form-control'
   .form-group
     = f.label :status
     = f.select :status, Book.statuses_i18n.invert, {},class: 'form-control', placeholder: 1
