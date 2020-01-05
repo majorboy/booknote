@@ -4,7 +4,8 @@ tr
   td 
     = book.author
   td
-    = book.genre_i18n
+    -if book.genre.present? 
+      = book.genre.name
   td 
     = book.status_i18n
   td 
