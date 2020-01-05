@@ -1,2 +1,28 @@
-h1 Genres#index
-p Find me in app/views/genres/index.html.slim
+h1 Genre List
+
+.nav
+  .nav-item
+    = link_to "ジャンル登録", new_genre_path, class: "btn btn-info"
+  .nav-item
+    = link_to 'Book List', books_path, class: 'btn btn-info'
+
+
+.table-responsive
+  table.table.table-striped.b-t.b-light
+    thead
+      tr
+        th ジャンル名
+        th
+        th
+        th
+    tbody 
+       
+      - if @genres.present?
+        - @genres.each do |genre|
+          tr
+            td = genre.name
+            td
+            td 
+            td
+              = link_to '編集', edit_genre_path(genre), class: 'btn btn-info mr-1'
+              = link_to '削除', "#", class: 'btn btn-danger'
