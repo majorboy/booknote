@@ -15,6 +15,8 @@ h1 Book List
 .nav
   .nav-item
     = link_to "本を登録する", new_book_path, class: "btn btn-info"
+  .nav-item
+    = link_to "ジャンル一覧", genres_path, class: "btn btn-info"
   .nav-item 
     = link_to "csvエクスポート", books_path(params.merge(format: 'csv').permit!), class: "btn btn-info"
 
