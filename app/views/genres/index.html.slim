@@ -25,4 +25,4 @@ h1 Genre List
             td 
             td
               = link_to '編集', edit_genre_path(genre), class: 'btn btn-info mr-1'
-              = link_to '削除', "#", class: 'btn btn-danger'
+              = link_to '削除', genre, method: :delete,data: { confirm: "「#{genre.name}」を削除します。よろしいですか？"},  class: 'btn btn-danger'
