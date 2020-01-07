@@ -1,24 +1,19 @@
-# README
+# Booknote
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ概要
 
-Things you may want to cover:
+## 機能
 
-* Ruby version
+## 使い方
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## インストール
+  ```
+  $ git clone https://github.com/majorboy/booknote.git
+  $ cd booknote
+  $ bundle install
+  ```
+## 作者
+[長田 謙吾： Twitter](https://twitter.com/tuk_nagayan){:target="_blank"}
+## ライセンス
+This project is licensed free.
+ご自由にご利用ください
