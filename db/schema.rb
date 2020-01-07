@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200105023949) do
+ActiveRecord::Schema.define(version: 20200107204343) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                  null: false
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20200105023949) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_genres_on_user_id", using: :btree
   end
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -54,4 +56,5 @@ ActiveRecord::Schema.define(version: 20200105023949) do
 
   add_foreign_key "books", "genres"
   add_foreign_key "books", "users"
+  add_foreign_key "genres", "users"
 end

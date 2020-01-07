@@ -1,7 +1,7 @@
 class GenresController < ApplicationController
   before_action :set_genre, only: [:edit,:update,:destroy]
   def index 
-    @genres = Genre.all
+    @genres = current_user.genres
   end
 
   def new
@@ -12,7 +12,7 @@ class GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.new(genre_params)
+    @genre = current_user.genres.new(genre_params)
     if @genre.save
       redirect_to genres_url, notice: "ジャンル「#{@genre.name}」を登録しました。"
     else
@@ -35,7 +35,7 @@ class GenresController < ApplicationController
   
   private
   def genre_params
-    params.require(:genre).permit(:name)
+    params.require(:genre).permit(:name, :user_id)
   end
 
   def set_genre

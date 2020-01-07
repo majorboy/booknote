@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   has_many :books, dependent: :destroy
+  has_many :genres, dependent: :destroy
 end
