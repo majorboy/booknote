@@ -64,6 +64,6 @@ class BooksController < ApplicationController
   end
 
   def set_genre
-    @genres = Genre.all
+    @genres = current_user.genres
   end
 end
