@@ -13,7 +13,8 @@
   $ bundle install
   ```
 ## 作者
-[長田 謙吾： Twitter](https://twitter.com/tuk_nagayan){:target="_blank"}
+<a href="https://twitter.com/tuk_nagayan" target="_blank">長田 謙吾： Twitter</a>
+
 ## ライセンス
 This project is licensed free.
 ご自由にご利用ください
