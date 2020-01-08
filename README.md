@@ -14,7 +14,8 @@ http://18.177.162.184/
 ## 開発環境
 フロントエンド： Slim、Sass、Bootstrap4  
 バックエンド： Ruby on Rails  
-インフラ：　AWS（EC2） Docker　docker-composeで以下環境を構築しています  
+インフラ：　AWS（EC2） Docker  
+docker-composeで以下環境を構築しています    
          Webサーバ：Nginx　アプリサーバ： Puma　　DB： MySQL
 
 ## 機能
