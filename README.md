@@ -71,7 +71,7 @@ docker-composeで以下環境を構築しています
 
 * Twitterのようなイメージで気軽に読書の感想をtweetする機能をつけました
 ### csv出力例
-![image](https://user-images.githubusercontent.com/49441355/72212761-9baba180-3525-11ea-8c69-f64456a4c8b2.png)
+![image](https://user-images.githubusercontent.com/49441355/72212768-0bba2780-3526-11ea-9aa4-acc4a8c134ee.png)
 
 * Exel等で気軽にデータの加工ができるようにしたいと考え書籍データのcsv出力機能もつけました
 
