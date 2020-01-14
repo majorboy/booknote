@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   has_many :thoughts, dependent: :destroy
   belongs_to :genre, optional: true
   scope :recent, -> { order(created_at: :desc)}
+  validates :title, presence: true
   
   def self.generate_csv
     column_name = ["書名", "作者", "ジャンル", "状態"]

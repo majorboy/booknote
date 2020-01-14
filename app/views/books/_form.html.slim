@@ -1,7 +1,10 @@
 = form_for book do |f|
   .form-group
-    = f.label :title
+    = f.label '書名（必須）'
     = f.text_field :title, class: 'form-control', id: 'book_name', autocomplete: 'off'
+    - if book.errors.any?
+      .errors
+        = book.errors.full_messages_for(:title)[0]
   .form-group
     = f.label :author
     = f.text_field :author, class: 'form-control', id: 'author', autocomplete: 'off'
