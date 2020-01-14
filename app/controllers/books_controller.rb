@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show,:edit,:update,:destroy]
-  before_action :set_genre, only: [:index, :new, :edit]
+  before_action :set_genre, only: [:index, :new, :edit, :create,:update]
   before_action :login_required 
 
   def index
@@ -32,7 +32,7 @@ class BooksController < ApplicationController
     if @book.save 
       redirect_to books_url, notice: "「#{@book.title}」を登録しました。"
     else
-      render :new
+      render action: :new
     end
   end
 
