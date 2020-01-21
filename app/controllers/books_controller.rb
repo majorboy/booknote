@@ -5,12 +5,12 @@ class BooksController < ApplicationController
 
   def index
     @q = current_user.books.ransack(params[:q])
-    @books = @q.result(distinct: true).recent.page(params[:page]).per(10)
+    @books = @q.result(distinct: true).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html
       format.csv do
-        @books = @q.result(distinct: true).recent
+        @books = @q.result(distinct: true)
         send_data @books.generate_csv, filename: "books-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"
       end
     end
