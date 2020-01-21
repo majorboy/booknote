@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   root "top#index"
-  resources :books do
+  resources :books, except: [:update,:destroy] do
     resources :notes
     resources :thoughts
   end
 
   resources :users, only: [:new, :edit, :create, :update]
 
-  resources :genres
+  resources :genres, except: [:update,:destroy]
 end

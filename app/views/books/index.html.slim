@@ -28,7 +28,7 @@ h1 Book List
         th = sort_link(@q, :author, hide_indicator: true)
         th = sort_link(@q, :genre_id, hide_indicator: true)
         th = sort_link(@q, :status, hide_indicator: true)
-        th
+        th.hidden
     tbody
       = render @books
 .pagination-sm

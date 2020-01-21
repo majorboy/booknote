@@ -14,7 +14,7 @@ h1 Genre List
         th ジャンル名
         th
         th
-        th
+        th.hidden
     tbody 
        
       - if @genres.present?
@@ -23,6 +23,6 @@ h1 Genre List
             td = genre.name
             td
             td 
-            td
+            td.hidden
               = link_to '編集', edit_genre_path(genre), class: 'btn btn-info mr-1'
               = link_to '削除', genre, method: :delete,data: { confirm: "「#{genre.name}」を削除します。よろしいですか？"},  class: 'btn btn-danger'
